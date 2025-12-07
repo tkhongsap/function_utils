@@ -1,10 +1,3 @@
-"""
-Test script for Gauss-Seidel iteration solver (Problem 3_3.1)
-
-This script implements the GS function and test cases as specified in the
-03-gauss-seidel-subquestion-design.md file.
-"""
-
 import numpy as np
 
 
