@@ -12,8 +12,8 @@ import sys
 from pathlib import Path
 
 # Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from data_science.gram_schmidt import normalize
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
+from numerical_methods.linear_algebra.gram_schmidt import normalize
 
 
 class TestNormalizeBasic:
