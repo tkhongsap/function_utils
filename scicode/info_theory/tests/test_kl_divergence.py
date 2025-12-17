@@ -1,23 +1,13 @@
-import numpy as np
+"""Test cases for KL divergence function."""
 
-def KL_divergence(p, q):
-    # Placeholder for the user's implementation
-    # For now, this is a reference implementation to verify tests
-    p = np.asarray(p, dtype=float)
-    q = np.asarray(q, dtype=float)
-    
-    # Filter out 0s in p to avoid 0*log(0) (which is 0)
-    mask = p > 0
-    
-    # Note: The prompt asks to assume same support, but Test Case 1 violates it.
-    # In a robust implementation:
-    # If p[i] > 0 and q[i] == 0, KL is inf.
-    # If p[i] == 0, contribution is 0 regardless of q[i].
-    
-    # Calculate KL using base 2
-    # KL(p||q) = sum p[i] * log2(p[i]/q[i])
-    
-    return np.sum(p[mask] * np.log2(p[mask] / q[mask]))
+import numpy as np
+import sys
+from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from info_theory.kl_divergence import KL_divergence
+
 
 def test_kl_divergence():
     # Test Case 1
@@ -43,9 +33,9 @@ def test_kl_divergence():
     target3 = 2.0
     print(f"Test Case 3: KL({p3}, {q3}) = {KL_divergence(p3, q3)} (Expected: {target3})")
     assert np.allclose(KL_divergence(p3, q3), target3)
-    
-    print("All tests passed for Subproblem 1!")
+
+    print("All tests passed for KL Divergence!")
+
 
 if __name__ == "__main__":
     test_kl_divergence()
-
